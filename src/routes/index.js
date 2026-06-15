@@ -9,5 +9,6 @@ router.get('/health', healthController.checkHealth);
 // Dummy API for testing
 router.get('/hello', helloController.getHello);
 
+router.get('/login', )
 // Export router
 module.exports = router;
