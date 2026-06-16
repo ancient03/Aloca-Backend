@@ -1,13 +1,10 @@
-// Contoh konfigurasi database (misal: MySQL/PostgreSQL menggunakan Prisma/Sequelize)
-// require('dotenv').config();
+const mysql = require("mysql2/promise");
 
-module.exports = {
-  development: {
-    url: process.env.DATABASE_URL || 'mysql://aloca_user:aloca_password_123@localhost:3306/aloca_management_db',
-    dialect: 'mysql',
-  },
-  production: {
-    url: process.env.DATABASE_URL,
-    dialect: 'mysql',
-  }
-};
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
+
+module.exports = pool;
